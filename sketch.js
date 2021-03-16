@@ -14,13 +14,9 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
-	option = {
-		restitution:0.5,
-		friction:0.8,
-		density:1.0
-	}
+	
 
-	packageSprite=createSprite(width/2, 80, 10,10,option);
+	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
 
@@ -34,16 +30,14 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	redBox1 = Bodies.rectangle(400,650,200,20, {isStatic:true});
+	redBox1 = Bodies.rectangle(400,650,230,20, {isStatic:true});
 	World.add(world,redBox1);
-	redBox2= Bodies.rectangle(300,610,20,100, {isStatic:true});
+	redBox2 = Bodies.rectangle(300,610,20,100, {isStatic:true});
 	World.add(world,redBox2);
-    redBox3 = Bodies.rectangle(500,610,20,100, {isStatic:true});
+	redBox3 = Bodies.rectangle(500,610,20,100, {isStatic:true});
 	World.add(world,redBox3);
 
-	
-
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.8,isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 18 , {restitution:0.8,isStatic:true});
 	World.add(world, packageBody);
 	
 
@@ -68,6 +62,7 @@ function draw() {
   rect(redBox1.position.x,redBox1.position.y,200,20)
   rect(redBox2.position.x,redBox2.position.y,20,100)
   rect(redBox3.position.x,redBox3.position.y,20,100)
+
 
   drawSprites();
  
